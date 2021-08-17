@@ -14,5 +14,7 @@ Linux:
 ### Connecting to another computer
 ### Controlling Turtle with an external host
 
+# Sources
+https://husarnet.com/blog/ros2-docker/
 
 
