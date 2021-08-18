@@ -17,6 +17,7 @@ sudo -E apt-get -y install docker-ce docker-compose
 
 echo  " ${GREEN} Testing Docker ${BLANK}"
 sudo docker run hello-world
-echo  "${GREEN} Test Passed: Docker Installation Complete${BLANK}"
+sudo docker run docker/whalesay cowsay Docker Installed Successfully
 sudo systemctl daemon-reload
 sudo systemctl restart docker
+
