@@ -17,7 +17,14 @@ sudo -E apt-get -y install docker-ce docker-compose
 
 echo  " ${GREEN} Testing Docker ${BLANK}"
 sudo docker run hello-world
-sudo docker run docker/whalesay cowsay Docker Installed Successfully
+
+echo  "${GREEN} Setting up rootless docker ${BLANK}"
+sudo apt-get install uidmap
+dockerd-rootless-setuptool.sh install
+: ${PATH:=/usr/bin:$PATH}
+: ${DOCKER_HOST:=unix:///run/user/1000/docker.sock}
+docker run docker/whalesay cowsay Docker Installed Successfully
 sudo systemctl daemon-reload
 sudo systemctl restart docker
+
 
