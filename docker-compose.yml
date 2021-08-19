@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  turtlesim:
+    build: .
+    environment: 
+      - DISPLAY=${DISPLAY}
+    volumes: 
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    network_mode: host
+    command: ros2 run turtlesim turtlesim_node   
+    depends_on: 
+      - turtle_controller 
+  turtle_controller:
+    build: .
+    network_mode: host
+    command: ros2 run turtlesim turtle_teleop_key

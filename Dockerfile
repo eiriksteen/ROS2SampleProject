@@ -1,17 +1,7 @@
-FROM osrf/ros:foxy-desktop
+FROM ros:foxy
 
-SHELL ["/bin/bash", "-c"]
-
-WORKDIR /app
-
-COPY ros2_ws ros2_ws/
-RUN cd ros2_ws && \
-    source /opt/ros/foxy/setup.bash && \
-    colcon build
-
-COPY eg1/ros_entrypoint.sh /
-
-ENTRYPOINT ["/ros_entrypoint.sh"]
-CMD ["bash"]
-
+RUN apt update  && apt install -y ros-foxy-turtlesim vim
+COPY ros2_ws /
+COPY scripts/ros_entrypoint.sh /ros2_ws/ros_entrypoint.sh
+ENTRYPOINT [ "/ros2_ws/ros_entrypoint.sh"]
 

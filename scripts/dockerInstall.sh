@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BLANK='\033[0m'
+RED='\e[0;31m'
+GREEN='\e[0;32m'
+BLANK='\e[0m'
 sudo apt-get -y install curl
 sudo apt-get remove docker docker-engine docker.io containerd runc
-echo  "${GREEN} Getting ready to install Docker, Cho Chooo! ${BLANK}"
+echo  -e "${GREEN} Getting ready to install Docker, Cho Chooo! ${BLANK}"
 sudo apt-get -y install sl
 sl
 sudo -E apt-get -y install apt-transport-https ca-certificates software-properties-common && \
@@ -15,22 +15,25 @@ sudo -E add-apt-repository "deb [arch=${arch}] https://download.docker.com/linux
 sudo -E apt-get update && \
 sudo -E apt-get -y install docker-ce docker-compose
 
-echo  " ${GREEN} Testing Docker ${BLANK}"
+echo  -e " ${GREEN} Testing Docker ${BLANK}"
 sudo docker run hello-world
 
-echo  "${GREEN} Setting up rootless docker ${BLANK}"
+echo  -e "${GREEN} Setting up rootless docker ${BLANK}"
 sudo apt-get install uidmap
 dockerd-rootless-setuptool.sh install
 
 #Add to path
-BINARY_PATH="PATH:=/usr/bin:$PATH"
+BINARY_PATH= "export PATH=/usr/bin:$PATH"
 if ! grep -qF "$BINARY_PATH" ~/.bashrc; then echo "$BINARY_PATH" >> ~/.bashrc ; source ~/.bashrc ; fi
-SET_DOCKER_HOST="DOCKER_HOST:=unix:///run/user/1000/docker.sock"
+SET_DOCKER_HOST="export DOCKER_HOST=unix:///run/user/1000/docker.sock"
 if ! grep -qF "$SET_DOCKER_HOST" ~/.bashrc; then echo "$SET_DOCKER_HOST" >> ~/.bashrc ; source ~/.bashrc ; fi
+sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+sudo chmod g+rwx "$HOME/.docker" -R
 
-echo  "${GREEN} Testing rootless docker ${BLANK}"
-docker run docker/whalesay cowsay Docker Installed Successfully
+echo  -e "${GREEN} Testing rootless docker ${BLANK}"
+source ~/.bashrc
 sudo systemctl daemon-reload
 sudo systemctl restart docker
+docker run docker/whalesay cowsay Docker Installed Successfully
 
 
