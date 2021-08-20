@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 
 services:
   turtlesim:
@@ -7,11 +7,12 @@ services:
       - DISPLAY=${DISPLAY}
     volumes: 
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-    network_mode: host
-    command: ros2 run turtlesim turtlesim_node   
-    depends_on: 
-      - turtle_controller 
-  turtle_controller:
+    command: bash -c "ros2 run turtlesim turtlesim_node "
+  bridge_container:
     build: .
-    network_mode: host
-    command: ros2 run turtlesim turtle_teleop_key
+    stdin_open: true
+    tty: true
+    command: bin/bash
+    depends_on: [turtlesim]
+
+      
