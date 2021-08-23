@@ -1,0 +1,10 @@
+{
+        "key": "ctrl+shift+b",
+        "command":"workbench.action.task.build"
+},
+{
+        "key": "ctrl+shift+d",
+        "command": "workbench.action.taks.debug"
+}
+
+

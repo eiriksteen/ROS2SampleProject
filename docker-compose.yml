@@ -14,5 +14,17 @@ services:
     tty: true
     command: bin/bash
     depends_on: [turtlesim]
-
+  talker:
+    build: .
+    stdin_open: true
+    tty: true
+    command: bash -c "ros2 run talker"
+  listener:
+    build: .
+    stdin_open: 
+    build: .
+    stdin_open: true
+    tty: true
+    command: bash -c "ros2 run listener"
+    depends_on: [talker]
       
