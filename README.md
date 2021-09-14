@@ -8,11 +8,49 @@ Check your current version by typing the following into your terminal.
 ```
 lsb_release -a
 ```
-Windows:
-Macos:
-Linux:
+This should reveal your Ubuntu distro. 
 
-''' $ docker run docker/whalesay cowsay Docker Installed Successfully'''
+### Step 1: Cloning the repository
+> Prerequesites: You should already have set up github with ssh-keys.
+Clone the reposetory in your home directory.
+
+```
+git clone git@github.com:AscendNTNU/ros2-workshop.git 
+```
+If you have set up your ssh-keys correctly, this should download the ros2-workshop directory.
+
+### Step 2: Installing dependencies
+To install all the necessary packages for the workshop, you first need to give your user permission
+to excecute the installation scripts.
+We first navigate to our home directory
+```
+cd
+```
+```
+pwd
+```
+This will basicly print out where you are on your computer. 
+
+
+### Step 3: Installing VSCode
+
+### Step 4: Launching the workspace
+
+<details>
+  <summary>Hint</summary>
+  
+  ```python
+  ```
+</details>
+
+
+<details>
+  <summary>For the curious</summary>
+  
+  ```
+  
+  ```
+</details>
 
 ## Introduction
 
