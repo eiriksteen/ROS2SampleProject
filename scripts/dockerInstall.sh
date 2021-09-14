@@ -32,4 +32,5 @@ sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
 sudo chmod g+rwx "$HOME/.docker" -R
 
 echo  -e "${GREEN} Testing rootless docker ${BLANK}"
+systemctl stop docker
 systemctl --user enable docker
