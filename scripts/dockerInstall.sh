@@ -20,8 +20,10 @@ echo  -e " ${GREEN} Testing Docker ${BLANK}"
 sudo docker run hello-world
 
 echo  -e "${GREEN} Setting up rootless docker ${BLANK}"
+sudo systemctl disable --now docker.service docker.socket
 sudo apt-get install uidmap
 dockerd-rootless-setuptool.sh install
+#If not installed: sudo apt-get install -y dbus-user-session
 sudo apt-get install -y docker-ce-rootless-extras
 
 #Add to path
