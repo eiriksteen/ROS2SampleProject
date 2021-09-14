@@ -4,6 +4,7 @@ RED='\e[0;31m'
 GREEN='\e[0;32m'
 BLANK='\e[0m'
 sudo apt-get -y install curl
+sudo apt-get -y install gcc
 sudo apt-get remove docker docker-engine docker.io containerd runc
 echo  -e "${GREEN} Getting ready to install Docker, Cho Chooo! ${BLANK}"
 sudo apt-get -y install sl
@@ -34,6 +35,3 @@ echo  -e "${GREEN} Testing rootless docker ${BLANK}"
 source ~/.bashrc
 sudo systemctl daemon-reload
 sudo systemctl restart docker
-docker run docker/whalesay cowsay Docker Installed Successfully
-
-
