@@ -6,6 +6,8 @@ Windows:
 Macos:
 Linux:
 
+''' $ docker run docker/whalesay cowsay Docker Installed Successfully'''
+
 ## Introduction
 
 ## Building a Container
