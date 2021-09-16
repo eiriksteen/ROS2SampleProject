@@ -26,12 +26,9 @@ If you have set up your ssh-keys correctly, this should download the ros2-worksh
  
 To install all the necessary packages for the workshop, you first need to give your user permission
 to excecute the installation scripts.
-We first navigate to our home directory
+
 ```
-cd
-```
-```
-cd ros2-workshop
+cd  ~/ros2-workshop
 ```
 ```
 pwd
@@ -47,12 +44,12 @@ We now excecute the installation scripts.
 ```
 ./scripts/dockerInstall.sh
 ```
-We now test if everything was installed successfully. 
+We now test if everything was installed successfully, but first we need to source our new enviroment variables. 
 ```
 source ../.bashrc
 ```
 ```
-docker run docker/whalesay cowsay Docker install completed
+docker run -rm docker/whalesay cowsay Docker install completed
 ```
 You should now see a very cute whale printed in your terminal.
 
@@ -63,8 +60,12 @@ You should now see a very cute whale printed in your terminal.
 ./scripts/vscodeInstall.sh
 ```
 
-
 ### Step 3: Launching the workspace
+Open ros2-workshop in VSCode and make sure to install the extensions in the pop-up that should appear in you bottom-right corner. 
+After installing the extensions for VSCode, you should reload your window. Ctrl + Shift + P should open your VSCode command palette.
+Excecute "Reload Window". You should now see a prompt in your bottom left that should say "Reopen in Containter". The same can be achieved by 
+excecuting "Remote-Containers: Reopen in Container" in the VSCode command palette. Your window should now reload, and launch your ros-workspace in
+an isolated container. We can now begin programming with ROS2.
 
 <details>
   <summary>Hint</summary>
@@ -82,15 +83,17 @@ You should now see a very cute whale printed in your terminal.
   ```
 </details>
 
-## Introduction
 
-## Building a Container
+## Assignment 1: Navigating your workspace
+TODO: 
 
-## Turtlesim
-### Connecting to another computer
-### Controlling Turtle with an external host
+## Assignment 2: "Hello world!"
+TODO:
+## Assignment 3: Ndes and topics
+TODO:
+## Assignment 4: Services and Turtlesim
 
-# Sources
-https://husarnet.com/blog/ros2-docker/
+## Assignment 5 Talking to another computer
+TODO
 
-
+## Extra
