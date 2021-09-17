@@ -67,17 +67,14 @@ Excecute "Reload Window". You should now see a prompt in your bottom left that s
 excecuting "Remote-Containers: Reopen in Container" in the VSCode command palette. Your window should now reload, and launch your ros-workspace in
 an isolated container. We can now begin programming with ROS2.
 
-<details>
-  <summary>Hint</summary>
-  
-  ```python
-  ```
-</details>
 
 
 <details>
-  <summary>For the curious</summary>
-  
+  <summary>For the curious: Containers</summary>
+  Our current workspace is now running in a container, but what is a container? A container is a filesystem isolated from your root filesystem. We achieve this by restricting all the processes inside to this filesystem. From programs inside a container can only access the resources and files allocated to it. It is in some sense a virtual machine, but is sharing the resources with the host machine. If you want to learn more, we reccomend this video [here](https://www.youtube.com/watch?v=8fi7uSYlOdc). 
+ 
+ 
+ 
   ```
   
   ```
@@ -86,6 +83,14 @@ an isolated container. We can now begin programming with ROS2.
 
 ## Assignment 1: Navigating your workspace
 TODO: 
+
+
+<details>
+  <summary>Hint</summary>
+  
+  ```python
+  ```
+</details>
 
 ## Assignment 2: "Hello world!"
 TODO:
