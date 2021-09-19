@@ -242,6 +242,25 @@ ros2 topic pub /some-topic some-msg-type some-msg
 
 
 ## Assignment 4: Services and Turtlesim
+### Service nodes
+Messeges are published, and the sender has no idea who listens to them. The publisher also does not expect a reply. Services on the other hand &ndash; require a reply. When nodes communicate using services, the node that sends a request for data is called the client node, and the one that responds to the request is the service node.
+
+```python
+class ServiceNode(Node):
+
+    def __init__(self):
+        super().__init__('minimal_service')
+        self.srv = self.create_service(service_type, 'service_name', self.some_service_callback)
+
+    def some_service_callback(self, request, response):
+        #Do something with request
+        # ...
+        # Create response based on result
+        return response
+```
+The service is advertised by calling the `create_service()` member function. This takes three parameters &ndash; the type of service, the name the service is advertised under and the callback for the service. The callback here takes two parameters &ndash; unlike the subscriber callback which takes one &ndash; the request and the response. It is important to return the response to the servivce. 
+
+
 
 ![Graph Viz](https://docs.ros.org/en/foxy/_images/Nodes-TopicandService.gif)
 
