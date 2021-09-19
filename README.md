@@ -304,7 +304,20 @@ ros2 pkg create --build-type ament_python <package_name>
 ```
 In this package &ndash; create a node with a service that makes the turtle move in a circle. 
 
+<details>
+   <summary>Hint: How to move the turtle </summary>
 
+  ```
+  Check what topics the turle_sim subscribes to. 
+  ```
+</details>
+<details>
+   <summary>Answer: Calling the service</summary>
+
+  ```
+  You can command the turtle with the topic /comand_velocity
+  ```
+</details>
 
 
 
