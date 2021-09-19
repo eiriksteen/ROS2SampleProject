@@ -333,7 +333,7 @@ from geometry_msgs.msg import Pose
 </details>
 
 ## Conclusion 
-So now you know the basics. So what's next? Coding for drones! What could go wrong? 
+So now you know the basics. So what's next? Coding for drones! What could possibly go wrong? 
 
 ![Oups](https://c.tenor.com/D3cahLf26vAAAAAC/drone-cat-flying.gif)
 
