@@ -281,7 +281,7 @@ ros2 service info
 ros2 service call <service_name> <service_type> <arguments>
 ```
 The arguments part is optional. For example, the Empty typed services don’t have any arguments. We now want you to make the turtle move in a square pattern by calling the correct service.
-
+<details>
  <summary>Hint: Finding the correct service</summary>
 
   ```
@@ -289,6 +289,7 @@ The arguments part is optional. For example, the Empty typed services don’t ha
   ```
   </details>
 
+<details>
    <summary>Hint: Calling the service</summary>
 
   ```
@@ -297,11 +298,14 @@ The arguments part is optional. For example, the Empty typed services don’t ha
   </details>
 
 ### Task: Final test
-Now you need to put everything you have learned to the test. Create a package in the Assignment4 directory by calling 
+Now you need to put everything you have learned to the test. Create a package in the src directory by calling 
 ```bash
 ros2 pkg create --build-type ament_python <package_name>
 ```
 In this package &ndash; create a node with a service that makes the turtle move in a circle. 
+
+
+
 
 
 
