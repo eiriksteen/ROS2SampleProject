@@ -134,9 +134,11 @@ ros2 node info /some-node
 
 ros2 topic list
 
-ros2 topic echo some-topic
+ros2 topic info /some-topic
 
-ros2 topic pub some-topic some-msg-type some-msg
+ros2 topic echo /some-topic
+
+ros2 topic pub /some-topic some-msg-type some-msg
 ```
 
 ### Tasks
