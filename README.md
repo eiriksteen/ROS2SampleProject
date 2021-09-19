@@ -94,7 +94,7 @@ TODO:
 
 ## Assignment 2: "Hello world!"
 TODO:
-## Assignment 3: Ndes and topics
+## Assignment 3: Nodes and topics
 TODO:
 ## Assignment 4: Services and Turtlesim
 
