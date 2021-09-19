@@ -1,6 +1,9 @@
 # ros2-workshop
 ROS 2 workshop for Ascend Team 2022
 
+## What is ROS?
+
+
 ## Installation
 
 This workshop is built on Ubuntu 20.04. Make sure that you are running the same distribution before continuing. 
@@ -71,34 +74,65 @@ an isolated container. We can now begin programming with ROS2.
 
 <details>
   <summary>For the curious: Containers</summary>
-  Our current workspace is now running in a container, but what is a container? A container is a filesystem isolated from your root filesystem. We achieve this by restricting all the processes inside to this filesystem. From programs inside a container can only access the resources and files allocated to it. It is in some sense a virtual machine, but is sharing the resources with the host machine. If you want to learn more, we reccomend this video [here](https://www.youtube.com/watch?v=8fi7uSYlOdc). 
+  Our current workspace is now running in a container, but what is a container? A container is a filesystem isolated from your root filesystem. We achieve this by restricting all the processes inside to this filesystem. From programs inside a container can only access the resources and files allocated to it. It is in some sense a virtual machine, but is sharing the resources with the host machine. If you want to learn more, we reccomend this video https://www.youtube.com/watch?v=8fi7uSYlOdc. 
  
- 
- 
-  ```
-  
-  ```
 </details>
 
 
-## Assignment 1: Navigating your workspace
-TODO: 
+## Assignment 1: Navigating the workspace
+> Note: Make sure you are in the container you ran in the previous section. 
+
+Every ROS project has a workspace. A ROS workspace is a directory that contains everything related to your project, packages etc.. The ros2-workshop repo is a ROS2 workspace, and is the root for all the packages we will build in this workshop. The `src` folder contains all our source files including package information about what we want to build. When we build our workspace, the ROS build tool `colcon` will generate the necessary files and directories to run our packages. We will now build our workspace to see what `colcon` generates. In VSCode you can do this with Ctrl + Shift + B, or in the terminal with
+
+
+```
+colcon build --merge-install
+```
+> Note: The --merge-install is just an convenience argument, and is not that important for us to understand
+
+<details>
+  <summary>For the curious: Colcon</summary>
+  https://colcon.readthedocs.io/en/released/reference/verb/build.html
+</details>
+
+
+
 
 
 <details>
+
+
+## Assignment 2: "Hello world!"
+TODO:
+ 
+   <summary>Hint</summary>
+  
+  ```python
+  ```
+</details>
+## Assignment 3: Nodes and topics
+TODO:
+  <summary>Hint</summary>
+  
+  ```python
+  ```
+</details>
+## Assignment 4: Services and Turtlesim
   <summary>Hint</summary>
   
   ```python
   ```
 </details>
 
-## Assignment 2: "Hello world!"
-TODO:
-## Assignment 3: Nodes and topics
-TODO:
-## Assignment 4: Services and Turtlesim
-
 ## Assignment 5 Talking to another computer
 TODO
+  <summary>Hint</summary>
+  
+  ```python
+  ```
+</details>
 
 ## Extra
+
+## Sources
+https://industrial-training-dev.readthedocs.io/en/latest/
