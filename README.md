@@ -71,6 +71,7 @@ After installing the extensions for VSCode, you should reload your window. Ctrl 
 Excecute "Reload Window". You should now see a prompt in your bottom left that should say "Reopen in Containter". The same can be achieved by 
 excecuting "Remote-Containers: Reopen in Container" in the VSCode command palette. Your window should now reload, and launch your ros-workspace in
 an isolated container. We can now begin programming with ROS2.
+> Note: While viewing `README.md` in VSCode, press Ctrl + Shift + V to view the file in beautiful markdown format :)
 
 
 
@@ -297,20 +298,25 @@ The arguments part is optional. For example, the Empty typed services don’t ha
   ```
   </details>
 
-### Task: Final test
+## Final test
 Now you need to put everything you have learned to the test. Create a package in the src directory by calling 
 ```bash
 ros2 pkg create --build-type ament_python <package_name>
 ```
-In this package &ndash; create a node with a service that makes the turtle move in a circle. 
-
+In this package &ndash; create a node with a service that makes the turtle move in a circle. You might need these libraries in the task:
+```python
+from std_srvs.srv import Trigger
+from geometry_msgs.msg import Twist
+from geometry_msgs.msg import Pose
+```
 <details>
    <summary>Hint: How to move the turtle </summary>
 
   ```
-  Check what topics the turle_sim subscribes to. 
+  Check which topics the turle_sim subscribes to. 
   ```
 </details>
+
 <details>
    <summary>Answer: Calling the service</summary>
 
@@ -318,15 +324,23 @@ In this package &ndash; create a node with a service that makes the turtle move 
   You can command the turtle with the topic /comand_velocity
   ```
 </details>
+<details>
+   <summary>Hint: Movement message type </summary>
 
+  
+  Use `ros2 topic info` to view the cmd_vel message type  
+  
+</details>
 
+## Conclusion 
+So now you know the basics. So what's next? Coding for drones! What could go wrong? 
 
-
-## Assignment 5 Talking to another computer
-
-
-## Extra
+![Oups](https://c.tenor.com/D3cahLf26vAAAAAC/drone-cat-flying.gif)
 
 ## Sources
-https://industrial-training-dev.readthedocs.io/en/latest/
-https://docs.ros.org/en/foxy/index.html
+Thirsty for more? Here are some useful links.
+* https://industrial-training-dev.readthedocs.io/en/latest/
+* https://docs.ros.org/en/foxy/index.html
+
+
+
