@@ -245,6 +245,8 @@ ros2 topic pub /some-topic some-msg-type some-msg
 ### Service nodes
 Messeges are published, and the sender has no idea who listens to them. The publisher also does not expect a reply. Services on the other hand &ndash; require a reply. When nodes communicate using services, the node that sends a request for data is called the client node, and the one that responds to the request is the service node.
 
+![Graph Viz](https://docs.ros.org/en/foxy/_images/Nodes-TopicandService.gif)
+
 ```python
 class ServiceNode(Node):
 
@@ -258,11 +260,50 @@ class ServiceNode(Node):
         # Create response based on result
         return response
 ```
-The service is advertised by calling the `create_service()` member function. This takes three parameters &ndash; the type of service, the name the service is advertised under and the callback for the service. The callback here takes two parameters &ndash; unlike the subscriber callback which takes one &ndash; the request and the response. It is important to return the response to the servivce. 
+The service is advertised by calling the `create_service()` member function. This takes three parameters &ndash; the type of service, the name the service is advertised under and the callback for the service. The type of the service can be defined by the programmer, but there are already a few services predefined. One example of such a service is `Empty`, which takes in no data in the requesr and returns a boolean value. The callback here takes two parameters &ndash; unlike the subscriber callback which takes one &ndash; the request and the response. It is important to return the response to the servivce. 
 
 
+### Service clients
+To call a service we first have to create the service client. This is done by calling the member function `create_client(service_type), 'service_name')`. Here we don't need to specify a callback. 
 
-![Graph Viz](https://docs.ros.org/en/foxy/_images/Nodes-TopicandService.gif)
+
+### Task
+Open turtlesim by calling 
+```bash
+ros2 run turtlesim turtlesim_node
+```
+When we work with services, we have some usefull command line tools &ndash; just like we had with topics. They are as follows
+```bash
+ros2 service list
+ros2 service type <service_name>
+ros2 service find <service_type>
+ros2 service info
+ros2 service call <service_name> <service_type> <arguments>
+```
+The arguments part is optional. For example, the Empty typed services don’t have any arguments. We now want you to make the turtle move in a square pattern by calling the correct service.
+
+ <summary>Hint: Finding the correct service</summary>
+
+  ```
+  Call ros2 service list while the turtle sim is running. 
+  ```
+  </details>
+
+   <summary>Hint: Calling the service</summary>
+
+  ```
+  Remember, you can autocomplete by using tab
+  ```
+  </details>
+
+### Task: Final test
+Now you need to put everything you have learned to the test. Create a package in the Assignment4 directory by calling 
+```bash
+ros2 pkg create --build-type ament_python <package_name>
+```
+In this package &ndash; create a node with a service that makes the turtle move in a circle. 
+
+
 
 ## Assignment 5 Talking to another computer
 
