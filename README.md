@@ -134,9 +134,11 @@ ros2 node info /some-node
 
 ros2 topic list
 
-ros2 topic echo some-topic
+ros2 topic info /some-topic
 
-ros2 topic pub some-topic some-msg-type some-msg
+ros2 topic echo /some-topic
+
+ros2 topic pub /some-topic some-msg-type some-msg
 ```
 
 ### Tasks
@@ -150,7 +152,8 @@ ros2 topic pub some-topic some-msg-type some-msg
 ## Assignment 3: Writing a Node
 ### How to write a node in ROS2
  Now that you have had a quick introduction to what nodes are, we will learn how to write our own nodes in ROS2. There is a convention about how to write your nodes. You have to create a class which inherits from the Node object (for example: rclcpp::Node in Cpp, rclpy.node.Node in Python). In this class you’ll have all your ROS2 functionalities. You can then implement your case specific functionality in this class.  
-   ```python
+ 
+ ```python
  class SimpleNode(Node):
     def __init__(self):
         super().__init__('my_node_name')
@@ -164,9 +167,7 @@ ros2 topic pub some-topic some-msg-type some-msg
   To instantiate a node, you first have to initialize ROS communications. `rclpy.init(args)` will do that for you, with some arguments that you can pass when you launch the node.
 
 
-## Assignment 3: Nodes and topics
 
-  <summary>Hint</summary>
 
   ```python
   def main(args=None):
@@ -190,11 +191,6 @@ ros2 topic pub some-topic some-msg-type some-msg
   A timer object can be created if we want to have an action repeated periodically. We then create a timer object using the function `create_timer(period, callback)`. This will then call the callback function with the specified period. 
 
   A publisher is a class that can publish a message on a specific topic. In ROS2 we can create a publisher by calling the member-function `create_publisher()` function.
-
-</details>
-
-
-  <summary>Hint</summary>
 
   
   ```python
