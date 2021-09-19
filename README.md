@@ -166,7 +166,6 @@ ros2 topic pub /some-topic some-msg-type some-msg
   To instantiate a node, you first have to initialize ROS communications. `rclpy.init(args)` will do that for you, with some arguments that you can pass when you launch the node.
 
 
-## Assignment 3: Nodes and topics
 
   <summary>Hint</summary>
 
