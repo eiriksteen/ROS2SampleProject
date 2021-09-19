@@ -26,12 +26,9 @@ If you have set up your ssh-keys correctly, this should download the ros2-worksh
  
 To install all the necessary packages for the workshop, you first need to give your user permission
 to excecute the installation scripts.
-We first navigate to our home directory
+
 ```
-cd
-```
-```
-cd ros2-workshop
+cd  ~/ros2-workshop
 ```
 ```
 pwd
@@ -47,12 +44,12 @@ We now excecute the installation scripts.
 ```
 ./scripts/dockerInstall.sh
 ```
-We now test if everything was installed successfully. 
+We now test if everything was installed successfully, but first we need to source our new enviroment variables. 
 ```
 source ../.bashrc
 ```
 ```
-docker run docker/whalesay cowsay Docker install completed
+docker run -rm docker/whalesay cowsay Docker install completed
 ```
 You should now see a very cute whale printed in your terminal.
 
@@ -63,8 +60,30 @@ You should now see a very cute whale printed in your terminal.
 ./scripts/vscodeInstall.sh
 ```
 
-
 ### Step 3: Launching the workspace
+Open ros2-workshop in VSCode and make sure to install the extensions in the pop-up that should appear in you bottom-right corner. 
+After installing the extensions for VSCode, you should reload your window. Ctrl + Shift + P should open your VSCode command palette.
+Excecute "Reload Window". You should now see a prompt in your bottom left that should say "Reopen in Containter". The same can be achieved by 
+excecuting "Remote-Containers: Reopen in Container" in the VSCode command palette. Your window should now reload, and launch your ros-workspace in
+an isolated container. We can now begin programming with ROS2.
+
+
+
+<details>
+  <summary>For the curious: Containers</summary>
+  Our current workspace is now running in a container, but what is a container? A container is a filesystem isolated from your root filesystem. We achieve this by restricting all the processes inside to this filesystem. From programs inside a container can only access the resources and files allocated to it. It is in some sense a virtual machine, but is sharing the resources with the host machine. If you want to learn more, we reccomend this video [here](https://www.youtube.com/watch?v=8fi7uSYlOdc). 
+ 
+ 
+ 
+  ```
+  
+  ```
+</details>
+
+
+## Assignment 1: Navigating your workspace
+TODO: 
+
 
 <details>
   <summary>Hint</summary>
@@ -73,24 +92,13 @@ You should now see a very cute whale printed in your terminal.
   ```
 </details>
 
+## Assignment 2: "Hello world!"
+TODO:
+## Assignment 3: Ndes and topics
+TODO:
+## Assignment 4: Services and Turtlesim
 
-<details>
-  <summary>For the curious</summary>
-  
-  ```
-  
-  ```
-</details>
+## Assignment 5 Talking to another computer
+TODO
 
-## Introduction
-
-## Building a Container
-
-## Turtlesim
-### Connecting to another computer
-### Controlling Turtle with an external host
-
-# Sources
-https://husarnet.com/blog/ros2-docker/
-
-
+## Extra
