@@ -1,8 +1,7 @@
 {
-        "recommendations": ["streetsidesoftware.code-spell-checker", 
+        "recommendations": [ 
                                 "ms-vscode.cpptools",
                                 "ms-python.python",
-                                "ms-vscode.cpptools",
                                 "twxs.cmake",
                                 "yzhang.markdown-all-in-one"]
 }
