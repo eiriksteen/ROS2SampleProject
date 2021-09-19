@@ -3,6 +3,8 @@ ROS 2 workshop for Ascend Team 2022
 
 ## What is ROS?
 
+![ROS foxy](https://docs.ros.org/en/foxy/_static/foxy-small.png)
+
 
 ## Installation
 
@@ -79,16 +81,21 @@ an isolated container. We can now begin programming with ROS2.
 </details>
 
 
-## Assignment 1: Navigating the workspace
+## Assignment 1: "Hello World!"
 > Note: Make sure you are in the container you ran in the previous section. 
 
-Every ROS project has a workspace. A ROS workspace is a directory that contains everything related to your project, packages etc.. The ros2-workshop repo is a ROS2 workspace, and is the root for all the packages we will build in this workshop. The `src` folder contains all our source files including package information about what we want to build. When we build our workspace, the ROS build tool `colcon` will generate the necessary files and directories to run our packages. We will now build our workspace to see what `colcon` generates. In VSCode you can do this with Ctrl + Shift + B, or in the terminal with
+ ROS 2 relies on the notion of combining workspaces using the shell environment. Every ROS project has a workspace. “Workspace” is a ROS term for the location on your system where you’re developing with ROS 2. You can have several workspaces on your machine, but we'll only use one. This feature enables easy switching between different versions of ROS. This is accomplished by sourcing setup files, which include ROS environment variables. **Without sourcing ROS setup files you wont be able to access any ROS2 commands.** 
+
+ ```
+ source /opt/ros/foxy/setup.bash
+ ```
+ Not sourcing setup files is one of the most common mistakes when working with ROS in a shell. The ros2-workshop repo is a ROS2 workspace, and is the root for all the packages we will build in this workshop. The `src` directory contains all our source files including package information about what we want to build. When we build our workspace, the ROS build tool `colcon` will generate the necessary files and directories to run our packages. We will now build our workspace to see what `colcon` generates. In VSCode you can do this with Ctrl + Shift + B, or in the terminal with
 
 
 ```
 colcon build --merge-install
 ```
-> Note: The --merge-install is just an convenience argument, and is not that important for us to understand
+> Note: The --merge-install is just a convenience argument, and is not that important for us to understand
 
 <details>
   <summary>For the curious: Colcon</summary>
@@ -96,10 +103,46 @@ colcon build --merge-install
 </details>
 
 
+You can now see several new directories in the root directory of our workspace. The `install` directory contains the `setup.bash` files that include the workspace environment variables we need to run our packages. Source this file with the same syntax as we used when sourcing ROS setup files. We should now be able to run our example code.
+```
+ros2 run assignment1 hello_world
+```
+You should now have a node printing out "Hello World" in your terminal. 
+> Note: Ctrl + C to terminate the program
 
 
 
-<details>
+
+## Assignment 2: Nodes and Topics
+
+![Graph Viz](https://docs.ros.org/en/foxy/_images/Nodes-TopicandService.gif)
+
+The `hello_world` program in assignment 1 is a ROS `node`. Every ROS program is a node, communicating in a graph of other nodes. A node can both receive and send messages. When `hello_world` prints out a message, every other node can chose to listen to `hello_world`s message. A message is sent to communication channels which in ROS are called `topic`s. Other nodes can listen and/or post messages to a `topic`. One analogy is a Slack channel. One node/user can post, listen or ignore a `topic`/channel. When a node/user posts a message to a `topic`/channel the ones subscribing to that `topic` are notified, and can read that message. A node can have a ROS `subscriber` that listens to a `topic`. The opposite is a ROS `publisher` that posts to a `topic`. Now we'll run our `hello_world` program. Open a new bash shell in VSCode ("+" icon in the top left in your current shell). 
+
+> Note: Make sure that ROS is sourced
+
+### Useful commands
+
+```
+ros2 node list
+
+ros2 inspect some-package
+
+ros2 topic list
+
+ros2 topic echo some-topic
+
+ros2 topic pub some-topic some-msg-type some-msg
+```
+
+### Tasks
+> Note: Press `tab` for autocomplete
+* List all running nodes
+* Echo two topics
+* Post a message to the topic `hello_world` posts to
+
+
+
 
 
 ## Assignment 2: "Hello world!"
@@ -127,6 +170,11 @@ TODO:
 
   To instantiate a node, you first have to initialize ROS communications. `rclpy.init(args)` will do that for you, with some arguments that you can pass when you launch the node.
 
+
+## Assignment 3: Nodes and topics
+
+  <summary>Hint</summary>
+
   ```python
   def main(args=None):
     rclpy.init(args=args)
@@ -138,6 +186,7 @@ TODO:
     rclpy.shutdown()
   ```
 
+
  `rclpy.spin(node)` will pause the program execution here, waiting for you to request to kill the node (for example CTRL+C in the terminal). During this time, any thread/timer you’ve created in the node will continue to be executed. Also, spin will be able to call any callback function that you’ve defined for the node, allowing your node to communicate with other nodes.
 
  When you request to kill the node, the spin function will exit, and any callback won’t be callable anymore. `rclpy.shutdown()` will basically shutdown what you started when you executed `rclpy.init()`.
@@ -148,6 +197,12 @@ TODO:
   A timer object can be created if we want to have an action repeated periodically. We then create a timer object using the function `create_timer(period, callback)`. This will then call the callback function with the specified period. 
 
   A publisher is a class that can publish a message on a specific topic. In ROS2 we can create a publisher by calling the member-function `create_publisher()` function.
+
+</details>
+
+## Assignment 4: Services and Turtlesim
+  <summary>Hint</summary>
+
   
   ```python
     self.publisher = self.create_publisher(Message_type, 'topic_name')
@@ -207,3 +262,4 @@ TODO:
 
 ## Sources
 https://industrial-training-dev.readthedocs.io/en/latest/
+https://docs.ros.org/en/foxy/index.html
