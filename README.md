@@ -115,9 +115,13 @@ You should now have a node printing out "Hello World" in your terminal.
 
 ## Assignment 2: Nodes and Topics
 
-![Graph Viz](https://docs.ros.org/en/foxy/_images/Nodes-TopicandService.gif)
 
-The `hello_world` program in assignment 1 is a ROS `node`. Every ROS program is a node, communicating in a graph of other nodes. A node can both receive and send messages. When `hello_world` prints out a message, every other node can chose to listen to `hello_world`s message. A message is sent to communication channels which in ROS are called `topic`s. Other nodes can listen and/or post messages to a `topic`. One analogy is a Slack channel. One node/user can post, listen or ignore a `topic`/channel. When a node/user posts a message to a `topic`/channel the ones subscribing to that `topic` are notified, and can read that message. A node can have a ROS `subscriber` that listens to a `topic`. The opposite is a ROS `publisher` that posts to a `topic`. Now we'll run our `hello_world` program. Open a new bash shell in VSCode ("+" icon in the top left in your current shell). 
+
+The `hello_world` program in assignment 1 is a ROS `node`. Every ROS program is a node, communicating in a graph of other nodes. A node can both receive and send messages. When `hello_world` prints out a message, every other node can chose to listen to `hello_world`s message. A message is sent to communication channels which in ROS are called `topic`s. Other nodes can listen and/or post messages to a `topic`. One analogy is a Slack channel. One node/user can post, listen or ignore a `topic`/channel. When a node/user posts a message to a `topic`/channel the ones subscribing to that `topic` are notified, and can read that message. A node can have a ROS `subscriber` that listens to a `topic`. The opposite is a ROS `publisher` that posts to a `topic`. 
+
+![Graph Viz](https://docs.ros.org/en/foxy/_images/Topic-MultiplePublisherandMultipleSubscriber.gif)
+
+Now we'll run our `hello_world` program. Open a new bash shell in VSCode ("+" icon in the top left in your current shell). 
 
 > Note: Make sure that ROS is sourced
 
@@ -126,7 +130,7 @@ The `hello_world` program in assignment 1 is a ROS `node`. Every ROS program is 
 ```
 ros2 node list
 
-ros2 inspect some-package
+ros2 node info /some-node
 
 ros2 topic list
 
@@ -146,6 +150,9 @@ ros2 topic pub some-topic some-msg-type some-msg
 
 ## Assignment 3: Nodes and topics
 
+
+
+
   <summary>Hint</summary>
   
   ```python
@@ -153,6 +160,9 @@ ros2 topic pub some-topic some-msg-type some-msg
 </details>
 
 ## Assignment 4: Services and Turtlesim
+
+
+![Graph Viz](https://docs.ros.org/en/foxy/_images/Nodes-TopicandService.gif)
   <summary>Hint</summary>
   
   ```python
