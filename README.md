@@ -148,12 +148,16 @@ ros2 topic pub some-topic some-msg-type some-msg
 
 
 
-## Assignment 3: Nodes and topics
 
 
 
 
   <summary>Hint</summary>
+
+## Assignment 2: "Hello world!"
+TODO:
+ 
+   <summary>Hint</summary>
   
   ```python
   ```
@@ -163,19 +167,110 @@ ros2 topic pub some-topic some-msg-type some-msg
 
 
 ![Graph Viz](https://docs.ros.org/en/foxy/_images/Nodes-TopicandService.gif)
-  <summary>Hint</summary>
-  
-  ```python
+
+## Assignment 3: Writing a Node
+### How to write a node in ROS2
+ Now that you have had a quick introduction to what nodes are, we will learn how to write our own nodes in ROS2. There is a convention about how to write your nodes. You have to create a class which inherits from the Node object (for example: rclcpp::Node in Cpp, rclpy.node.Node in Python). In this class you’ll have all your ROS2 functionalities. You can then implement your case specific functionality in this class.  
+   ```python
+ class SimpleNode(Node):
+    def __init__(self):
+        super().__init__('my_node_name')
+        # Create publishers and subscribers
+
+    def some_callback():
+      #Do something
   ```
+  The constructor of the `Node` class only takes in one parameter &mdash; the name the node is to be registered with. 
+
+  To instantiate a node, you first have to initialize ROS communications. `rclpy.init(args)` will do that for you, with some arguments that you can pass when you launch the node.
+
+
+## Assignment 3: Nodes and topics
+
+  <summary>Hint</summary>
+
+  ```python
+  def main(args=None):
+    rclpy.init(args=args)
+
+    node = SimpleNode()
+
+    rclpy.spin(node)
+
+    rclpy.shutdown()
+  ```
+
+
+ `rclpy.spin(node)` will pause the program execution here, waiting for you to request to kill the node (for example CTRL+C in the terminal). During this time, any thread/timer you’ve created in the node will continue to be executed. Also, spin will be able to call any callback function that you’ve defined for the node, allowing your node to communicate with other nodes.
+
+ When you request to kill the node, the spin function will exit, and any callback won’t be callable anymore. `rclpy.shutdown()` will basically shutdown what you started when you executed `rclpy.init()`.
+
+
+ ### Writing a simple publisher 
+
+  A timer object can be created if we want to have an action repeated periodically. We then create a timer object using the function `create_timer(period, callback)`. This will then call the callback function with the specified period. 
+
+  A publisher is a class that can publish a message on a specific topic. In ROS2 we can create a publisher by calling the member-function `create_publisher()` function.
+
 </details>
 
-## Assignment 5 Talking to another computer
-TODO
+## Assignment 4: Services and Turtlesim
   <summary>Hint</summary>
+
   
   ```python
+    self.publisher = self.create_publisher(Message_type, 'topic_name')
   ```
-</details>
+  The constructor takes in at least two arguments &ndash; message type and topic name. Messages are divided into different message types, with individual data fields. In this way we know how the data in the message is to be interpreted. Some examples of message types are `String` and `Image`. The publisher object has a member function called `publish(message)`, which takes in a message object of the type specified in the constructor. The message object needs to be created and it's data fields populated before it is published. 
+
+  ```python
+    msg = String()
+    msg.data = "Some message"
+  ```
+  ### Task
+  You now want to create a node that publishes a message in the form of a `String`. In the `PublisherNode.py` file we have provided you with a code skeleton. Create a publisher and publish a message with a desired period. Then build and run your node and make sure everything works.
+ 
+  <details>
+  <summary>Hint: Checking if it works</summary>
+
+  ```
+  Use 'ros2 topic echo' to make sure the node is publishing the message
+  ```
+  </details>
+
+   <details>
+  <summary>Hint: Publishing the message</summary>
+
+  ```
+  self.publisher.publish(msg)
+  ```
+  </details>
+
+  ### Writing a simple subscriber
+  A subscriber is an object that listens for messages on a topic. We can create a subscriber object by calling the member function `create_subscription(Message_type, 'topic_name', callback_function)`. Unlike publishers, subscribers have a third parameter &mdash; the callback function. This function is called each time a message is received.
+
+  ```python
+ class SimpleNode(Node):
+    def __init__(self):
+        super().__init__('my_node_name')
+        self.subscriber(msg_type, 'topic_name', self.some_callback)
+
+    def some_callback(self, msg):
+      #Do something
+  ```
+
+  ### Task
+  Now finnish the subscriber in `SubscriberNode.py`. Subscribe to the same topic you published on earlier and make the subscriber print out the message.
+
+  ### Task
+  Now play around with the publishing frequency. A useful tool is `ros2 topic hz topic_name`. Can you figure out what it does? 
+
+
+## Assignment 4: Services and Turtlesim
+
+
+## Assignment 5 Talking to another computer
+
 
 ## Extra
 
