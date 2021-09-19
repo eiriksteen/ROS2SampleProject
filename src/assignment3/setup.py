@@ -20,8 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-                'talker = assignment1.PublisherNode:main',
-                'listener = assignment1.SubscriberNode:main' 
+                'talker = assignment3.PublisherNode:main',
+                'listener = assignment3.SubscriberNode:main' 
         ],
     },
 )
