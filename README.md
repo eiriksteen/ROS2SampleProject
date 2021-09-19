@@ -147,27 +147,6 @@ ros2 topic pub some-topic some-msg-type some-msg
 
 
 
-
-
-
-
-
-  <summary>Hint</summary>
-
-## Assignment 2: "Hello world!"
-TODO:
- 
-   <summary>Hint</summary>
-  
-  ```python
-  ```
-</details>
-
-## Assignment 4: Services and Turtlesim
-
-
-![Graph Viz](https://docs.ros.org/en/foxy/_images/Nodes-TopicandService.gif)
-
 ## Assignment 3: Writing a Node
 ### How to write a node in ROS2
  Now that you have had a quick introduction to what nodes are, we will learn how to write our own nodes in ROS2. There is a convention about how to write your nodes. You have to create a class which inherits from the Node object (for example: rclcpp::Node in Cpp, rclpy.node.Node in Python). In this class you’ll have all your ROS2 functionalities. You can then implement your case specific functionality in this class.  
@@ -214,7 +193,7 @@ TODO:
 
 </details>
 
-## Assignment 4: Services and Turtlesim
+
   <summary>Hint</summary>
 
   
@@ -268,6 +247,7 @@ TODO:
 
 ## Assignment 4: Services and Turtlesim
 
+![Graph Viz](https://docs.ros.org/en/foxy/_images/Nodes-TopicandService.gif)
 
 ## Assignment 5 Talking to another computer
 
