@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>assignment4</name>
+  <name>assignment4_kok</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Kok for assignment 4 in ros2_workshop for Ascend NTNU</description>
   <maintainer email="tordna@protonmail.com">root</maintainer>
-  <license>TODO: License declaration</license>
+  <license>Do wtf you want</license>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

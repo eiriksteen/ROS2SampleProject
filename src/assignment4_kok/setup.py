@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'assignment4'
+package_name = 'assignment4_kok'
 
 setup(
     name=package_name,
@@ -15,11 +15,12 @@ setup(
     zip_safe=True,
     maintainer='root',
     maintainer_email='tordna@protonmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='Kok for assignment 4',
+    license='Do wtf you want',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'turtle_draw_circle=assignment4_kok.CircleService:main'
         ],
     },
 )
