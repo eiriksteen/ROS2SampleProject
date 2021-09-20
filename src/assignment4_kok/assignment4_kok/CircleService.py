@@ -12,18 +12,20 @@ class TurtleDrawService(Node):
         self.get_logger().info('Starting node')
         self.srv = self.create_service(Trigger, 'draw_circle', self.draw_circle)
         self.get_logger().info('Creating service')
-
         self.publisher_ = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
         self.get_logger().info('Creating publisher')
+        ##Placeholder
+        ##Create subscribtion here, maybe a timer?
 
 
 
     
     def turtle_circle(self):
-        #Magic constant, because time is valuable ;) Ideally you would increment and check /turtle1/with a subscribtion
+        #Placeholder code, create a subscribtion to pose to accuratly draw a full circle
+        random_number = 10
         mv_cmd = Twist()
-        mv_cmd.linear.x = 6.3
-        mv_cmd.angular.z = 6.3
+        mv_cmd.linear.x = random_number
+        mv_cmd.angular.z = random_number
         self.publisher_.publish(mv_cmd)
 
 
