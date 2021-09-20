@@ -55,7 +55,7 @@ We now test if everything was installed successfully, but first we need to sourc
 source ../.bashrc
 ```
 ```
-docker run -rm docker/whalesay cowsay Docker install completed
+docker run docker/whalesay cowsay Docker install completed
 ```
 You should now see a very cute whale printed in your terminal.
 
