@@ -27,7 +27,7 @@ dockerd-rootless-setuptool.sh install
 sudo apt-get install -y docker-ce-rootless-extras
 
 #Add to path
-BINARY_PATH= "export PATH=/usr/bin:$PATH"
+BINARY_PATH="export PATH=/usr/bin:$PATH"
 if ! grep -qF "$BINARY_PATH" ~/.bashrc; then echo "$BINARY_PATH" >> ~/.bashrc ; source ~/.bashrc ; fi
 SET_DOCKER_HOST="export DOCKER_HOST=unix:///run/user/1000/docker.sock"
 if ! grep -qF "$SET_DOCKER_HOST" ~/.bashrc; then echo "$SET_DOCKER_HOST" >> ~/.bashrc ; source ~/.bashrc ; fi
