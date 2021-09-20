@@ -310,15 +310,15 @@ from geometry_msgs.msg import Twist
 from geometry_msgs.msg import Pose
 ```
 <details>
-   <summary>Hint: How to move the turtle </summary>
+   <summary>Hint: Moving the turtle </summary>
 
   ```
-  Check which topics the turle_sim subscribes to. 
+  Check which topics the turlesim subscribes to. 
   ```
 </details>
 
-<details>
-   <summary>Answer: Moving the turtle/summary>
+<details> 
+   <summary>Answer: Moving the turtle </summary>
 
   ```
   You can command the turtle with the topic /comand_velocity
