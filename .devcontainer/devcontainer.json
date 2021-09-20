@@ -17,8 +17,8 @@
 		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
 	],
 	"containerEnv": {
-		"DISPLAY": "host.docker.internal:0",  //uncomment if using mac
-		//"DISPLAY": "${localEnv:DISPLAY}" //Comment out if using mac  
+		//"DISPLAY": "host.docker.internal:0",  //uncomment if using mac
+		"DISPLAY": "${localEnv:DISPLAY}" //Comment out if using mac  
 	},
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
