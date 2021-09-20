@@ -18,7 +18,7 @@ This should reveal your Ubuntu distro.
 
 ### Step 1: Cloning the repository
 > Prerequesites: You should already have set up github with ssh-keys.
-Clone the reposetory in your home directory.
+Clone the repository in your home directory.
 
 ```
 git clone git@github.com:AscendNTNU/ros2-workshop.git 
@@ -93,7 +93,7 @@ Xquartz needs to have the following configuration.
 <img src="media/xquartz_config_macos.png" alt="xquartz config" width="300"/>
 
 
-Then clone the reposetory, and open in VSCode
+Then clone the repository, and open in VSCode
 ```
 git clone git@github.com:AscendNTNU/ros2-workshop.git 
 ```
