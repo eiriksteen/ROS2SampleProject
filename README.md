@@ -6,7 +6,8 @@ ROS 2 workshop for Ascend Team 2022
 ![ROS foxy](https://docs.ros.org/en/foxy/_static/foxy-small.png)
 
 
-## Installation
+## Installation (Ubuntu 20.04)
+> Note: Installation for MacOS down below.
 
 This workshop is built on Ubuntu 20.04. Make sure that you are running the same distribution before continuing. 
 Check your current version by typing the following into your terminal.
@@ -73,6 +74,7 @@ excecuting "Remote-Containers: Reopen in Container" in the VSCode command palett
 an isolated container. We can now begin programming with ROS2.
 > Note: While viewing `README.md` in VSCode, press Ctrl + Shift + V to view the file in beautiful markdown format :)
 
+> Note: If you don't like using the terminal in VSCode, you can attach to the container with `docker exec -it ros2_ws_container bash` in another shell. 
 
 
 <details>
@@ -81,6 +83,16 @@ an isolated container. We can now begin programming with ROS2.
  
 </details>
 
+## Installation (MacOS)
+Install:
+* https://www.xquartz.org/
+* https://docs.docker.com/desktop/mac/install/
+
+Then clone the reposetory, and open in VSCode
+```
+git clone git@github.com:AscendNTNU/ros2-workshop.git 
+```
+Go to `.devcontainer/devcontainer.json` to comment and uncomment some environment variables that are MacOS specific, and follow the workshop from Step 3.
 
 ## Assignment 1: "Hello World!"
 > Note: Make sure you are in the container you ran in the previous section. 
