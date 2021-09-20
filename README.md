@@ -318,7 +318,7 @@ from geometry_msgs.msg import Pose
 </details>
 
 <details>
-   <summary>Answer: Calling the service</summary>
+   <summary>Answer: Moving the turtle/summary>
 
   ```
   You can command the turtle with the topic /comand_velocity
