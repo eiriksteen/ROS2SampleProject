@@ -3,5 +3,8 @@
                                 "ms-vscode.cpptools",
                                 "ms-python.python",
                                 "twxs.cmake",
-                                "yzhang.markdown-all-in-one"]
+                                "yzhang.markdown-all-in-one",
+                                "ms-vscode-remote.remote-containers",
+                                "ms-azuretools.vscode-docker"
+                        ]
 }
