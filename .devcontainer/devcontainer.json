@@ -2,19 +2,24 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
 	"dockerFile": "Dockerfile",
+	"name": "ros2_ws",
 	"build": {
 		"args": {
 			"WORKSPACE": "${containerWorkspaceFolder}"
 		}
 	},
 	"runArgs": [
+		"--name=ros2_ws_container",
 		"--network=host",
 		"--cap-add=SYS_PTRACE",
 		"--security-opt=seccomp:unconfined",
 		"--security-opt=apparmor:unconfined",
-		"--volume=/tmp/.X11-unix:/tmp/.X11-unix"
+		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
 	],
-	"containerEnv": { "DISPLAY": "${localEnv:DISPLAY}" },
+	"containerEnv": {
+		//"DISPLAY": "host.docker.internal:0",  //uncomment if using mac
+		"DISPLAY": "${localEnv:DISPLAY}" //Comment out if using mac  
+	},
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"terminal.integrated.profiles.linux": {
