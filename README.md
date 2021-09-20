@@ -332,9 +332,9 @@ from geometry_msgs.msg import Pose
 <details> 
    <summary>Answer: Moving the turtle </summary>
 
-  ```
-  You can command the turtle with the topic /comand_velocity
-  ```
+
+  You can command the turtle with the topic /cmd_vel
+ 
 </details>
 <details>
    <summary>Hint: Movement message type </summary>
