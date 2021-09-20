@@ -88,11 +88,17 @@ Install:
 * https://www.xquartz.org/
 * https://docs.docker.com/desktop/mac/install/
 
+Xquartz needs to have the following configuration.
+
+<img src="media/xquartz_config_macos.png" alt="xquartz config" width="300"/>
+
+
 Then clone the reposetory, and open in VSCode
 ```
 git clone git@github.com:AscendNTNU/ros2-workshop.git 
 ```
 Go to `.devcontainer/devcontainer.json` to comment and uncomment some environment variables that are MacOS specific, and follow the workshop from Step 3.
+> Warning: Docker and Xquartz must be running while working on ros2-workshop. 
 
 ## Assignment 1: "Hello World!"
 > Note: Make sure you are in the container you ran in the previous section. 
