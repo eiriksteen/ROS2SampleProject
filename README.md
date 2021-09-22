@@ -247,7 +247,7 @@ ros2 topic pub /some-topic some-msg-type some-msg
  class SimpleNode(Node):
     def __init__(self):
         super().__init__('my_node_name')
-        self.subscriber(msg_type, 'topic_name', self.some_callback)
+        self.subscriber = self.create_subscription(msg_type, 'topic_name', self.some_callback)
 
     def some_callback(self, msg):
       #Do something
@@ -257,7 +257,7 @@ ros2 topic pub /some-topic some-msg-type some-msg
   Now finnish the subscriber in `SubscriberNode.py`. Subscribe to the same topic you published on earlier and make the subscriber print out the message.
 
   ### Task
-  Now play around with the publishing frequency. A useful tool is `ros2 topic hz topic_name`. Can you figure out what it does? 
+  Play around with the publishing frequency. A useful tool is `ros2 topic hz topic_name`. Can you figure out what it does? 
 
 
 ## Assignment 4: Services and Turtlesim
@@ -283,7 +283,7 @@ The service is advertised by calling the `create_service()` member function. Thi
 
 
 ### Service clients
-To call a service we first have to create the service client. This is done by calling the member function `create_client(service_type), 'service_name')`. Here we don't need to specify a callback. 
+To call a service we first have to create the service client. This is done by calling the member function `create_client(service_type, 'service_name')`. Here we don't need to specify a callback. 
 
 
 ### Task
