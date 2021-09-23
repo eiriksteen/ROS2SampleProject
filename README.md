@@ -127,8 +127,9 @@ You can now see several new directories in the root directory of our workspace. 
 ros2 run assignment1 hello_world
 ```
 You should now have a node printing out "Hello World" in your terminal. 
-> Note: Ctrl + C to terminate the program
+> Note 1: Ctrl + C to terminate the program
 
+> Note 2: Ctrl + Shift + z suspends a process. `fg` brings it to the foreground and `bg` lets the process continue in the background. Use `ps` to view current jobs in your active terminal. 
 
 
 
