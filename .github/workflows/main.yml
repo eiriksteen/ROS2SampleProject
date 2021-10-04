@@ -28,8 +28,6 @@ jobs:
 
       - name: Source necessary files and build
         run: |
-          cd ~/ros2-workshop
-          pwd
           source /opt/ros/foxy/setup.bash
           cd install 
           source setup.bash
