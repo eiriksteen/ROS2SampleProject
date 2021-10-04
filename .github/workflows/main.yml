@@ -26,16 +26,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@main
 
+      - name: Source necessary files
+        run: |
+          source /opt/ros/foxy/setup.bash
+          cd install 
+          source setup.bash
+
       # Runs a single command using the runners shell
       - name: Builds the project
         run: 
           colcon build --merge-install
 
 
-      # Runs a set of commands using the runners shell
-      - name: Source necessary files
-        run: |
-          source /opt/ros/foxy/setup.bash
-          cd install 
-          source setup.bash
+    
+     
           
