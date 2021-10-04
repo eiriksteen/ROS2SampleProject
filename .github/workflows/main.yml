@@ -26,17 +26,17 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@main
 
-      - name: Source necessary files
+      - name: Source necessary files and build
         run: |
+          cd ~/ros2-workshop
           pwd
           source /opt/ros/foxy/setup.bash
           cd install 
           source setup.bash
-
-      # Runs a single command using the runners shell
-      - name: Builds the project
-        run: 
           colcon build --merge-install
+
+
+          
 
 
     
