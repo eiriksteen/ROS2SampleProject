@@ -29,6 +29,11 @@ jobs:
 
       - name: Source necessary files and build
         run: |
+          sudo chmod +x scripts/dockerInstall.sh
+          sudo chmod +x scripts/vscodeInstall.sh
+          ./scripts/dockerInstall.sh
+          source ../.bashrc
+          docker run docker/whalesay cowsay Docker install completed
 
           source $GITHUB_WORKSPACE/opt/ros/foxy/setup.bash
           source $GITHUB_WORKSPACE/install/setup.bash
