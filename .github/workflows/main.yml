@@ -28,6 +28,7 @@ jobs:
 
       - name: Source necessary files
         run: |
+          pwd
           source /opt/ros/foxy/setup.bash
           cd install 
           source setup.bash
