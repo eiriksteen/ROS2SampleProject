@@ -32,7 +32,7 @@ jobs:
       - name: ROS 2 CI Action
         uses: ros-tooling/action-ros-ci@0.2.3
         with: 
-          target-ros1-distro: foxy
+          target-ros2-distro: foxy
 
       - name: Upload logs
         uses: actions/upload-artifact@v1
