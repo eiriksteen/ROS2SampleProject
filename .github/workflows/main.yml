@@ -25,18 +25,17 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-    
 
       - name: Source necessary files and build
         run: |
           sudo chmod +x scripts/dockerInstall.sh
-          sudo chmod +x scripts/vscodeInstall.sh
           ./scripts/dockerInstall.sh
+
           source ../.bashrc
           docker run docker/whalesay cowsay Docker install completed
 
-          source $GITHUB_WORKSPACE/opt/ros/foxy/setup.bash
-          source $GITHUB_WORKSPACE/install/setup.bash
+          source opt/ros/foxy/setup.bash
+          source install/setup.bash
           colcon build --merge-install
 
 
