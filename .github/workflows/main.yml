@@ -30,10 +30,8 @@ jobs:
         run: |
           sudo chmod +x scripts/dockerInstall.sh
           ./scripts/dockerInstall.sh
-
           source ../.bashrc
           docker run docker/whalesay cowsay Docker install completed
-
           source opt/ros/foxy/setup.bash
           source install/setup.bash
           colcon build --merge-install
