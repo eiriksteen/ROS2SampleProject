@@ -17,25 +17,33 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  build_and_test:
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Setup ROS2
+      #- uses: actions/checkout@v2
       - uses: ros-tooling/setup-ros@0.2.1
+              
+        with:
+          required-ros-distributions: eloquent
 
-      #- name: Source necessary files and build
-        #run: |
-        #  sudo chmod +x scripts/dockerInstall.sh
-        #  ./scripts/dockerInstall.sh
-        #  source ../.bashrc
-        #  docker run docker/whalesay cowsay Docker install completed
-        #  source opt/ros/foxy/setup.bash
-        #  source install/setup.bash
-        #  colcon build --merge-install
+      - name: Run tests
+      - uses: ros-tooling/action-ros-ci@0.0.13
+        with:
+          package-name: assignment1
+
+      - name: Upload logs
+        uses: actions/upload-artifact@v1
+
+        with:
+          name : colcon-logs
+          path: ros_ws/log
+        if: always()
+
+
 
 
           
