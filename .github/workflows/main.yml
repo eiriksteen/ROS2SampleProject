@@ -26,7 +26,6 @@ jobs:
       - name: Setup ROS2
       #- uses: actions/checkout@v2
       - uses: ros-tooling/setup-ros@0.2.1
-              
         with:
           required-ros-distributions: eloquent
 
@@ -37,18 +36,8 @@ jobs:
 
       - name: Upload logs
         uses: actions/upload-artifact@v1
-
         with:
           name : colcon-logs
           path: ros_ws/log
         if: always()
-
-
-
-
-          
-
-
-    
-     
           
