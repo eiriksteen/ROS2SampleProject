@@ -29,15 +29,15 @@ jobs:
         with:
           required-ros-distributions: foxy
 
-      - name: Run tests
-        uses: ros-tooling/action-ros-ci@0.0.13
-        with:
-          package-name: assignment1
+      - name: ROS 2 CI Action
+        uses: ros-tooling/action-ros-ci@0.2.3
+        with: 
+          target-ros1-distro: foxy
 
       - name: Upload logs
         uses: actions/upload-artifact@v1
         with:
-          name : colcon-logs
+          name: colcon-logs
           path: ROS2SampleProject/log
         if: always()
           
