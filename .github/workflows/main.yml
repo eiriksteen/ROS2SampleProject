@@ -38,6 +38,6 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: colcon-logs
-          path: ROS2SampleProject/log
+          path: log
         if: always()
           

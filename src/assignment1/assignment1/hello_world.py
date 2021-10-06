@@ -12,10 +12,10 @@ class HelloNode(Node):
         timer_period = 0.5  # How often the callback will be called
         self.timer = self.create_timer(timer_period, self.timer_callback) # Register callback for timer with period 'timer_period'
         self.i = 0
-
+ 
     def timer_callback(self):
         msg = String() #Create message type string
-        msg.data = 'Hello World: %d' % self.i
+        msg.data = 'Hello World: %d' % self.i 
         self.publisher_.publish(msg) # Publish message
         self.get_logger().info('Publishing: "%s"' % msg.data) # Log to console
         self.i += 1
