@@ -28,12 +28,6 @@ jobs:
         with:
           required-ros-distributions: foxy
 
-      - name: ROS 2 Lint Action
-        uses: ros-tooling/action-ros-lint@0.1.3
-        with:
-          distribution: foxy
-          package-name: assignment1
-
       - name: ROS 2 CI Action
         uses: ros-tooling/action-ros-ci@0.2.3
         with: 
