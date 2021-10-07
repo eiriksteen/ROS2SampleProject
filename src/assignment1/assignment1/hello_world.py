@@ -14,7 +14,7 @@ class HelloNode(Node):
         self.i = 0
 
     def timer_callback(self):
-        msg = String() #Create message type string
+        msg = String( #Create message type string
         msg.data = 'Hello World: %d' % self.i
         self.publisher_.publish(msg) # Publish message
         self.get_logger().info('Publishing: "%s"' % msg.data) # Log to console
