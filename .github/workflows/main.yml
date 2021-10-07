@@ -32,15 +32,6 @@ jobs:
         uses: ros-tooling/action-ros-ci@0.2.3
         with: 
           target-ros2-distro: foxy
-          colcon-defaults: |
-            {
-              "build": {
-                "mixin": ["coverage-gcc", "coverage-pytest"]
-              },
-              "test": {
-                "mixin": ["coverage-pytest", "coverage-gcc"]
-              } 
-            }
 
 
       #- name: Upload logs
