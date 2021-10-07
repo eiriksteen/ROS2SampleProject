@@ -23,6 +23,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Run test code
+        uses: actions/checkout@v2
+        run: python3 src/assignment1/test/test1.py
+        
       - name: Setup ROS 2
         uses: ros-tooling/setup-ros@0.2.1 
         with:
