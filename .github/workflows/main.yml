@@ -23,8 +23,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Perform checkout to access repository contents
+        uses: actions/checkout@v2
+
       - name: Run test code
-        # uses: actions/checkout@v2
         run: python3 src/assignment1/test/test1.py
 
       - name: Setup ROS 2
