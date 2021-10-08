@@ -14,8 +14,8 @@ class HelloNode(Node):
         self.i = 0
 
 
-    def timer_callback(self):####
-        msg = String(
+    def timer_callback(self):
+        msg = String()
 
     def timer_callback(self):
         msg = String()
