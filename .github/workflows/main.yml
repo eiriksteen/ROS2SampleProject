@@ -44,9 +44,6 @@ jobs:
         with: 
           target-ros2-distro: foxy
 
-      - name: Test build
-        run: colcon build --merge-install
-
 
       #- name: Upload logs
       #  uses: actions/upload-artifact@v1
