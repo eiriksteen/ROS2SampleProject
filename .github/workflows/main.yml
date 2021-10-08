@@ -29,6 +29,7 @@ jobs:
       - name: Install pytest
         run: 
           pip install pytest
+          sudo apt install python3-testresources
         
       - name: Run testcode
         run: 
