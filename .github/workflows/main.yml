@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ main, practice ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, practice ]
   
 
   # Allows you to run this workflow manually from the Actions tab
@@ -17,32 +17,42 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  build_and_test:
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-    
+      - name: Perform checkout to access repository contents
+        uses: actions/checkout@v2
 
-      - name: Source necessary files and build
-        run: |
-          sudo chmod +x scripts/dockerInstall.sh
-          sudo chmod +x scripts/vscodeInstall.sh
-          ./scripts/dockerInstall.sh
-          source ../.bashrc
-          docker run docker/whalesay cowsay Docker install completed
+      - name: Install pytest
+        run: 
+          pip install pytest
+        
+      - name: Run testcode
+        run: 
+          python3 src/assignment1/test/test1.py
 
-          source $GITHUB_WORKSPACE/opt/ros/foxy/setup.bash
-          source $GITHUB_WORKSPACE/install/setup.bash
-          colcon build --merge-install
+      - name: Setup ROS 2
+        uses: ros-tooling/setup-ros@0.2.1 
+        with:
+          required-ros-distributions: foxy
+
+      - name: ROS 2 CI Action
+        uses: ros-tooling/action-ros-ci@0.2.3
+        with: 
+          target-ros2-distro: foxy
 
 
-          
+      #- name: Upload logs
+      #  uses: actions/upload-artifact@v1
+      #  with:
+      #   name: colcon-logs
+      #    path: ros_ws/log
+      #  if: always()  
+      
 
-
-    
-     
+      
+      
           
