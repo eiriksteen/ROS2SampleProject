@@ -13,13 +13,12 @@ class HelloNode(Node):
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
 
-<<<<<<< HEAD
+
     def timer_callback(self):####
-        msg = String()
-=======
-    def timer_callback(self):
         msg = String(
->>>>>>> 6d9c2f517f7715ddce24a87480803fc985d2c30d
+
+    def timer_callback(self):
+        msg = String()
         msg.data = 'Hello World: %d' % self.i
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
