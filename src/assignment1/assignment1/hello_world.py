@@ -13,13 +13,13 @@ class HelloNode(Node):
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
 
-    def timer_callback(self):
+    def timer_callback(self):####
         msg = String()
         msg.data = 'Hello World: %d' % self.i
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
         self.i += 1
-
+ 
 
 def main(args=None):
     rclpy.init(args=args)
